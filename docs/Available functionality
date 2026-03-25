@@ -1,0 +1,125 @@
+Individual — Available Functionality                                                                                                                                                                                                                                                                                                                                                                                                                              
+  Profile & Identity                                                                                                                                                                                                                                                                                                                                                                                                                                                
+  - View/update personal info, address, business info, security settings                                                                                                                                                            - Contact verification (email/phone) with OTP                                                                                                                                                                                     - Master PIN setup, change, and ban removal                                                                                                                                                                                     
+
+  KYC / Documents
+
+  - Upload, view, update, delete media files (KYC documents)
+  - Submit profile documents for compliance review
+  - View KYC providers and verification items
+  - Reset identification
+
+  Transaction Confirmation Settings
+
+  - Configure OTP/PIN confirmation per transaction type
+  - View and update confirmation settings
+
+  Wallet / Accounts
+
+  - View, create, rename, close, delete accounts
+  - Set main account, validate account numbers
+  - Get deposit address (cryptocurrency)
+  - View account closing requests
+
+  In-System Cards
+
+  - Create, view, delete own in-system cards linked to accounts
+
+  Bank Accounts
+
+  - Add, view, delete bank accounts linked to in-system accounts
+
+  Transfers
+
+  - Perform in-system transfers + fee calculation
+  - Create, use, and delete transfer templates
+
+  Top-Up
+
+  - Top-up via bank transfer (create request, accept, decline)
+  - Top-up via cash desk
+
+  Withdrawal
+
+  - Withdraw via bank (create request, accept, execute)
+  - Withdraw via cash desk
+  - Create, use, and delete withdrawal templates
+
+  Invoices
+
+  - Create, view, and pay invoices
+  - Calculate invoice fees (as payer)
+
+  External / Provider Operations
+
+  - Provider-based top-up, withdrawal, and purchase (create, calculate, accept)
+  - Issue payment cards via provider + fee calculation
+
+  Transactions & Reporting
+
+  - View, categorize, add notes to transactions
+  - Confirm transactions with OTP/PIN
+  - View grouped external-process transactions
+  - Account balance overview, outflow/income summaries by category
+
+  OTP / Confirmations
+
+  - View pending confirmations, resend OTP, confirm operations
+
+  Company Management (KYC-approved Individuals only)
+
+  - Create companies, add representatives and shareholders
+  - Submit company for compliance review, open company accounts
+
+  ---
+  Merchant — Available Functionality
+
+  Everything Individual Has, Plus:
+
+  Merchant Payments
+
+  - Create, view, cancel merchant payments
+  - View payment details
+
+  Points of Sale (POS)
+
+  - Create, view, update, delete POS terminals
+  - View transactions per POS
+
+  Product Catalog
+
+  - Create, update, delete products (including batch operations)
+  - Update/delete products by external code
+
+  Product Categories
+
+  - Create, update, delete product categories
+
+  Product Measure Units
+
+  - Create, update, delete measure units (including batch and by external code)
+
+  Product Pricing
+
+  - Create, update, delete product prices
+
+  Invoice Templates
+
+  - Create, view, delete invoice templates for reuse
+
+  Invoices (Enhanced)
+
+  - Calculate merchant-side commission for invoice creation (separate from payer-side)
+
+  ---
+  Shared (Both Roles)
+
+  Profile, KYC, bank accounts, wallets, in-system cards, transfers, top-ups, withdrawals, invoices (create/pay), external provider operations, transaction history, reporting, OTP confirmations.
+
+  Exclusive to Merchant
+
+  POS management, merchant payments, product catalog (products, categories, measure units, pricing), invoice templates, merchant commission calculation.
+
+  Exclusive to Individual
+
+  Company onboarding (creating companies with representatives, shareholders — for KYC-approved Individuals only).

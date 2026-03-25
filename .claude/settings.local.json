@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(python3 -c \":*)",
+      "Bash(python:*)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(where python:*)",
+      "Bash(node:*)",
+      "Bash(cmd /c \"dir C:\\\\Users\\\\vchornyi\\\\Documents\\\\SDK_Finance\\\\docs\" 2>&1)",
+      "Bash(cmd /c dir \"C:\\\\Users\\\\vchornyi\\\\Documents\\\\SDK_Finance\\\\docs\")",
+      "Bash(echo exit=$?)",
+      "Bash(cmd /c dir \"C:\\\\Users\\\\vchornyi\\\\Documents\\\\SDK_Finance\")",
+      "Bash(python3:*)",
+      "Bash(cmd /c dir)",
+      "Bash(npm install:*)",
+      "Bash(cmd.exe /c \"wc -l C:\\\\Users\\\\vchornyi\\\\Documents\\\\SDK_Finance\\\\docs\\\\library-api.yaml\")",
+      "Bash(cmd.exe /c \"type C:\\\\Users\\\\vchornyi\\\\Documents\\\\SDK_Finance\\\\docs\\\\library-api.yaml | find /c /v \"\"\"\"\")",
+      "Bash(powershell -Command \"\\(Get-Content 'C:\\\\Users\\\\vchornyi\\\\Documents\\\\SDK_Finance\\\\docs\\\\library-api.yaml'\\).Count\")",
+      "Bash(powershell.exe -Command \"Write-Host 'test'\")"
+    ]
+  }
+}
