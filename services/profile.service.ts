@@ -89,4 +89,21 @@ export const profileService = {
       newUserPassword: newPassword,
     });
   },
+
+  /** Get Master PIN status */
+  async getMasterPin(): Promise<{ active: boolean; createdAt?: string; updatedAt?: string }> {
+    const { data } = await api.get<{ pin: { active: boolean; createdAt?: string; updatedAt?: string } }>(
+      '/v1/profiles/my/master-pin'
+    );
+    return data.pin ?? { active: false };
+  },
+
+  /** Set or update Master PIN */
+  async setMasterPin(newPin: string, oldPin?: string): Promise<void> {
+    await api.put('/v1/profiles/my/master-pin', {
+      newPin,
+      oldPin: oldPin ?? undefined,
+      active: true,
+    });
+  },
 };
