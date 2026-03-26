@@ -17,7 +17,8 @@
       "Bash(cmd.exe /c \"wc -l C:\\\\Users\\\\vchornyi\\\\Documents\\\\SDK_Finance\\\\docs\\\\library-api.yaml\")",
       "Bash(cmd.exe /c \"type C:\\\\Users\\\\vchornyi\\\\Documents\\\\SDK_Finance\\\\docs\\\\library-api.yaml | find /c /v \"\"\"\"\")",
       "Bash(powershell -Command \"\\(Get-Content 'C:\\\\Users\\\\vchornyi\\\\Documents\\\\SDK_Finance\\\\docs\\\\library-api.yaml'\\).Count\")",
-      "Bash(powershell.exe -Command \"Write-Host 'test'\")"
+      "Bash(powershell.exe -Command \"Write-Host 'test'\")",
+      "Bash(npm uninstall:*)"
     ]
   }
 }

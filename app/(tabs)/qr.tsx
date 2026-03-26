@@ -10,7 +10,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as Haptics from 'expo-haptics';
-import { BarCodeScanner, type BarCodeScannerResult } from 'expo-barcode-scanner';
+import { CameraView, useCameraPermissions, type BarcodeScanningResult } from 'expo-camera';
 import QRCode from 'react-native-qrcode-svg';
 
 import { Colors } from '@/constants/theme';
@@ -28,8 +28,14 @@ export default function QRScreen() {
 
   const { selectedCoin } = useWalletStore();
   const [activeTab, setActiveTab] = useState<Tab>('show');
-  const [permission, setPermission] = useState<PermissionStatus>('undetermined');
+  const [cameraPermission, requestCameraPermission] = useCameraPermissions();
   const [scanned, setScanned] = useState(false);
+
+  const permission: PermissionStatus = cameraPermission == null
+    ? 'undetermined'
+    : cameraPermission.granted
+      ? 'granted'
+      : 'denied';
 
   const tabBarOffset = Platform.OS === 'ios' ? 84 : 64;
 
@@ -40,10 +46,9 @@ export default function QRScreen() {
   // Request camera permission when switching to scan tab
   useEffect(() => {
     if (activeTab !== 'scan') return;
-    (async () => {
-      const { status } = await BarCodeScanner.requestPermissionsAsync();
-      setPermission(status as PermissionStatus);
-    })();
+    if (!cameraPermission?.granted) {
+      requestCameraPermission();
+    }
   }, [activeTab]);
 
   const handleTabChange = useCallback((tab: Tab) => {
@@ -52,7 +57,7 @@ export default function QRScreen() {
     if (Platform.OS === 'ios') Haptics.selectionAsync();
   }, []);
 
-  const handleBarCodeScanned = useCallback(({ data }: BarCodeScannerResult) => {
+  const handleBarCodeScanned = useCallback(({ data }: BarcodeScanningResult) => {
     if (scanned) return;
     setScanned(true);
     if (Platform.OS === 'ios') Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
@@ -174,7 +179,7 @@ interface ScanTabProps {
   tabBarOffset: number;
   permission: PermissionStatus;
   scanned: boolean;
-  onBarcodeScanned: (result: BarCodeScannerResult) => void;
+  onBarcodeScanned: (result: BarcodeScanningResult) => void;
   onRescan: () => void;
   onOpenSettings: () => void;
 }
@@ -210,9 +215,9 @@ function ScanTab({ colors, tabBarOffset, permission, scanned, onBarcodeScanned, 
     <View style={[styles.scanContainer, { paddingBottom: tabBarOffset }]}>
       {/* Live camera */}
       <View style={styles.cameraWrap}>
-        <BarCodeScanner
-          onBarCodeScanned={scanned ? undefined : onBarcodeScanned}
-          barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
+        <CameraView
+          onBarcodeScanned={scanned ? undefined : onBarcodeScanned}
+          barcodeScannerSettings={{ barcodeTypes: ['qr'] }}
           style={StyleSheet.absoluteFillObject}
         />
 
