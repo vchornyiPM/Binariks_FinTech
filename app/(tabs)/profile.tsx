@@ -187,9 +187,13 @@ export default function ProfileScreen() {
             <Text style={[styles.profileEmail, { color: colors.textSecondary }]}>{displayEmail}</Text>
 
             {kycConfig && (
-              <View style={[styles.kycBadge, { backgroundColor: kycConfig.bg }]}>
+              <TouchableOpacity
+                style={[styles.kycBadge, { backgroundColor: kycConfig.bg }]}
+                onPress={() => router.push('/kyc/index' as any)}
+                activeOpacity={0.75}
+              >
                 <Text style={[styles.kycText, { color: kycConfig.text }]}>KYC: {kycConfig.label}</Text>
-              </View>
+              </TouchableOpacity>
             )}
           </View>
 
@@ -316,6 +320,34 @@ export default function ProfileScreen() {
                 <IconSymbol name="house.fill" size={16} color={colors.primaryBlue} />
               </View>
               <Text style={[styles.actionLabel, { color: colors.textPrimary }]}>Edit Address</Text>
+            </View>
+            <IconSymbol name="chevron.right" size={16} color={colors.textSecondary} />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.actionRow, { borderBottomColor: colors.border }]}
+            onPress={() => router.push('/kyc/index' as any)}
+            activeOpacity={0.75}
+          >
+            <View style={styles.actionRowLeft}>
+              <View style={[styles.actionIcon, { backgroundColor: '#1A56DB15' }]}>
+                <IconSymbol name="checkmark.shield.fill" size={16} color={colors.primaryBlue} />
+              </View>
+              <Text style={[styles.actionLabel, { color: colors.textPrimary }]}>Identity Verification</Text>
+            </View>
+            <IconSymbol name="chevron.right" size={16} color={colors.textSecondary} />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.actionRow, { borderBottomColor: colors.border }]}
+            onPress={() => router.push('/profile/master-pin' as any)}
+            activeOpacity={0.75}
+          >
+            <View style={styles.actionRowLeft}>
+              <View style={[styles.actionIcon, { backgroundColor: '#1A56DB15' }]}>
+                <IconSymbol name="lock.shield.fill" size={16} color={colors.primaryBlue} />
+              </View>
+              <Text style={[styles.actionLabel, { color: colors.textPrimary }]}>Master PIN</Text>
             </View>
             <IconSymbol name="chevron.right" size={16} color={colors.textSecondary} />
           </TouchableOpacity>

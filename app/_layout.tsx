@@ -59,6 +59,8 @@ export default function RootLayout() {
         <Stack.Screen name="bank-accounts/index" options={{ presentation: 'modal', headerShown: false }} />
         <Stack.Screen name="top-up/bank" options={{ presentation: 'modal', headerShown: false }} />
         <Stack.Screen name="withdrawal/bank" options={{ presentation: 'modal', headerShown: false }} />
+        <Stack.Screen name="kyc/index" options={{ presentation: 'modal', headerShown: false }} />
+        <Stack.Screen name="profile/master-pin" options={{ presentation: 'modal', headerShown: false }} />
       </Stack>
       <Toast />
       <StatusBar style="auto" />
